@@ -1,0 +1,14 @@
+# Environment
+.env
+.env.*
+
+# Docker volumes
+pgdata/
+postgres-data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
