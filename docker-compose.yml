@@ -1,12 +1,9 @@
-
 services:
   db:
     image: pgvector/pgvector:pg15
     restart: always
-    environment:
-      POSTGRES_USER: hrms
-      POSTGRES_PASSWORD: hrmspass
-      POSTGRES_DB: hrmsdb
+    env_file:
+      - .env
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
@@ -15,9 +12,8 @@ services:
   pgadmin:
     image: dpage/pgadmin4
     restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@test.com
-      PGADMIN_DEFAULT_PASSWORD: admin
+    env_file:
+      - .env
     ports:
       - "5050:80"
     depends_on:
